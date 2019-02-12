@@ -15,19 +15,8 @@
     export default {
             data() {
                 return {
-                    messages: [
-                        // {
-                        //     me: true,
-                        //     text: 'Bom dia'
-                        // },
-                        // {
-                        //     me: false,
-                        //     text: [
-                        //         'Bom dia',
-                        //         'Em que posso ajudar'
-                        //     ]
-                        // }
-                    ],
+                    context: {},
+                    messages: [],
                     message: '',
                     loading: false
                 }
@@ -40,15 +29,17 @@
                     })
 
                     const data = {
-                        message: this.message
+                        message: this.message,
+                        context: this.context
                     }
                     this.message = '';
                     this.loading = true;
                     axios.post('http://localhost:8000/api/dialog', data).then((response) => {
                         this.messages.push({
                             me: false,
-                            text: response.data
+                            text: response.data.output.text
                         })
+                        this.context = response.data.context;
                         this.loading = false;
                     })
                 }

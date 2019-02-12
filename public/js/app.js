@@ -1781,18 +1781,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      messages: [// {
-        //     me: true,
-        //     text: 'Bom dia'
-        // },
-        // {
-        //     me: false,
-        //     text: [
-        //         'Bom dia',
-        //         'Em que posso ajudar'
-        //     ]
-        // }
-      ],
+      context: {},
+      messages: [],
       message: '',
       loading: false
     };
@@ -1806,16 +1796,18 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         text: this.message
       });
       var data = {
-        message: this.message
+        message: this.message,
+        context: this.context
       };
       this.message = '';
       this.loading = true;
       axios.post('http://localhost:8000/api/dialog', data).then(function (response) {
         _this.messages.push({
           me: false,
-          text: response.data
+          text: response.data.output.text
         });
 
+        _this.context = response.data.context;
         _this.loading = false;
       });
     }
@@ -6112,7 +6104,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato);", ""]);
 
 // module
-exports.push([module.i, "\n.chat *[data-v-3f32a95a] {\n    margin: 0;\n    border: 0;\n    padding: 0;\n    font: inherit;\n}\n.chat[data-v-3f32a95a] {\n    font-family: 'Lato', sans-serif;\n    font-size: 16px;\n}\n.chat header[data-v-3f32a95a] {\n    font-weight: bold;\n    padding: 10px 20px;\n    background-color: #e67e22;\n    color: white;\n}\n.chat section[data-v-3f32a95a] {\n    padding: 10px 20px;\n    background-color: #f1c40f;\n    color: white;\n    display: flex;\n    flex-direction: column;\n}\n.chat section *[data-v-3f32a95a] {\n    border-radius: 10px;\n}\n.chat section .message[data-v-3f32a95a] {\n    padding: 10px;\n    border-left: 3px solid #f39c12;\n    background-color: rgba(255, 255, 255, 0.7);\n    color: #f39c12;\n    margin-bottom: 5px;\n    width: 80%;\n}\n.chat section .message.me[data-v-3f32a95a] {\n    padding: 20px;\n    border: none;\n    border-bottom: 3px solid #e67e22;\n    border-top: 3px solid #e67e22;\n    background: #f39c12;\n    color: white;\n    align-self: flex-end;\n}\n.chat section .message p[data-v-3f32a95a] {\n    padding-bottom: 10px;\n}\n.chat textarea[data-v-3f32a95a] {\n    padding: 20px;\n    border: 2px solid #f1c40f;\n}\n.chat textarea[data-v-3f32a95a]:focus {\n    outline: none;\n    border: 2px solid #f39c12;\n}\n", ""]);
+exports.push([module.i, "\n.chat *[data-v-3f32a95a] {\r\n    margin: 0;\r\n    border: 0;\r\n    padding: 0;\r\n    font: inherit;\n}\n.chat[data-v-3f32a95a] {\r\n    font-family: 'Lato', sans-serif;\r\n    font-size: 16px;\n}\n.chat header[data-v-3f32a95a] {\r\n    font-weight: bold;\r\n    padding: 10px 20px;\r\n    background-color: #e67e22;\r\n    color: white;\n}\n.chat section[data-v-3f32a95a] {\r\n    padding: 10px 20px;\r\n    background-color: #f1c40f;\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: column;\n}\n.chat section *[data-v-3f32a95a] {\r\n    border-radius: 10px;\n}\n.chat section .message[data-v-3f32a95a] {\r\n    padding: 10px;\r\n    border-left: 3px solid #f39c12;\r\n    background-color: rgba(255, 255, 255, 0.7);\r\n    color: #f39c12;\r\n    margin-bottom: 5px;\r\n    width: 80%;\n}\n.chat section .message.me[data-v-3f32a95a] {\r\n    padding: 20px;\r\n    border: none;\r\n    border-bottom: 3px solid #e67e22;\r\n    border-top: 3px solid #e67e22;\r\n    background: #f39c12;\r\n    color: white;\r\n    align-self: flex-end;\n}\n.chat section .message p[data-v-3f32a95a] {\r\n    padding-bottom: 10px;\n}\n.chat textarea[data-v-3f32a95a] {\r\n    padding: 20px;\r\n    border: 2px solid #f1c40f;\n}\n.chat textarea[data-v-3f32a95a]:focus {\r\n    outline: none;\r\n    border: 2px solid #f39c12;\n}\r\n", ""]);
 
 // exports
 
@@ -48863,8 +48855,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\erik_\Documents\dev\cursos\son\rapidos\watson-iniciante-php\p\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\erik_\Documents\dev\cursos\son\rapidos\watson-iniciante-php\p\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\erik_\Documents\dev\cursos\son\rapidos\watson-avancando-laravel\p\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\erik_\Documents\dev\cursos\son\rapidos\watson-avancando-laravel\p\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
